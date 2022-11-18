@@ -80,6 +80,7 @@ a {
   flex-basis: calc(
     (100% - var(--indent) * (var(--items) - 1)) / (var(--items))
   );
+  box-shadow: 0 0 5px rgb(0 0 0 / 50%);
 }
 /* CARD SET */
 
@@ -147,6 +148,10 @@ a {
 
 .nav-link:hover,
 .nav-link:focus {
+  transition-property: hover focus;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   color: var(--accent-color);
 }
 
@@ -160,10 +165,7 @@ a {
   height: 4px;
   border-radius: 2px;
   background-color: var(--accent-color);
-
 }
-
-
 
 .header-mail {
   margin-right: 50px;
@@ -181,6 +183,9 @@ a {
 
 .header-mail:hover,
 .header-mail:focus {
+  transition-property: hover focus;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--accent-color);
 }
 
@@ -199,6 +204,9 @@ a {
 
 .header-tel:hover,
 .header-tel:focus {
+  transition-property: hover focus;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--accent-color);
 }
 
@@ -281,6 +289,7 @@ a {
   color: #ffffff;
   border-color: var(--accent-color);
   background-color: var(--accent-color);
+  cursor: pointer;
 }
 
 .order-btn:hover,
@@ -438,6 +447,9 @@ a {
 
 .socials-link:hover,
 .socials-link:focus {
+    transition-property: hover focus;
+      transition-duration: 250ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #2196f3;
   color: #fff;
 }
@@ -482,6 +494,10 @@ a {
   width: 106px;
   height: 60px;
   fill: #afb1b8;
+    transition-property: hover focus;
+      transition-duration: 250ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .clients-link:hover,
@@ -521,7 +537,20 @@ a {
   color: var(--primary-text-color);
   border: none;
   border-radius: 4px;
+
+  transition-property: background-color box shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.btn:hover,
+.btn:focus {
+  background: #2196f3;
+  color: var(--white-color);
+  border-color: #2196f3;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
 .product-wrapper {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -576,7 +605,6 @@ a {
   background-color: rgba(33, 150, 243, 0.9);
 
   user-select: none;
-
   transition: transform var(--anim-fast);
 }
 
@@ -598,16 +626,12 @@ a {
 }
 
 .cards:hover {
+  transition-property: box shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-.btn:hover,
-.btn:focus {
-  background: #2196f3;
-  color: var(--white-color);
-  border-color: #2196f3;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 /*-------------------PAGE2 end-----------*/
@@ -703,6 +727,9 @@ a {
 
 .footer-icon-set:hover,
 .footer-icon-set:focus {
+  transition-property: hover focus;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #2196f3;
   color: #fff;
 }
@@ -715,6 +742,11 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: 100%;
   background-color: rgba(55, 53, 53, 0.359);
@@ -731,15 +763,21 @@ a {
   pointer-events: none;
 }
 
+.modal.modal-animation {
+  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
 .backdrop.is-hidden.modal {
-  transform: scale(0.9);
+  transform: translate(-50%, -50%) scale(0.9);
 }
 
 .modal {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(1);*/
+  transform: scale(1);
 
   min-width: 528px;
   min-height: 581px;
@@ -749,10 +787,6 @@ a {
 }
 
 .close-button {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto; */
   position: absolute;
   top: 8px;
   right: 8px;
@@ -767,4 +801,16 @@ a {
   position: absolute;
   top: 5px;
   left: 4.5px;
+}
+
+/* Animation */
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
